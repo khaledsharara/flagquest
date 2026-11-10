@@ -12,6 +12,7 @@ const paths = {
   book: 'M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5zM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5',
   refresh: 'M20 11a8 8 0 1 0-2.3 5.7M20 4v7h-7',
   zoomIn: 'M12 5v14M5 12h14',
+  infinity: 'M12 12c-2-2.6-3.6-4-5.6-4a4 4 0 0 0 0 8c2 0 3.6-1.4 5.6-4zm0 0c2 2.6 3.6 4 5.6 4a4 4 0 0 0 0-8c-2 0-3.6 1.4-5.6 4z',
 } as const;
 
 export type IconName = keyof typeof paths;

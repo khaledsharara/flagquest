@@ -1,5 +1,6 @@
 export { AtlasProvider, useAtlas } from './components/AtlasProvider';
 export { ContinentMap } from './components/ContinentMap';
+export { CountryChip } from './components/CountryChip';
 export { CountryShape } from './components/CountryShape';
 export { Flag } from './components/Flag';
 export { FocusMap } from './components/FocusMap';

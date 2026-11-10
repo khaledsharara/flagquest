@@ -10,8 +10,19 @@ map, and capitals. Made for sideloading with SideStore.
 - **Question types:** name the flag, pick the flag, name the shape, pick the shape, name the highlighted
   country, tap the country on a zoomable map, and pick the capital. Missed countries come back once at the
   end of the round as a "second chance".
+- **Endless practice** has three scopes:
+  - **Level:** repeats one level's countries until you stop.
+  - **Continent:** every country you've practiced in that continent.
+  - **Everything:** every country you've practiced anywhere.
+
+  It asks about weaker countries more often, and in Mix mode it targets each country's weakest skill. Tap
+  **Done** for a summary of what you've newly mastered and what needs more work. Questions never move on by
+  themselves; you always tap **Next**.
+- **Mastery:** every answer, in quizzes or endless practice, updates a per-country, per-skill score (flags,
+  shapes, map, capitals). Each right answer moves it up one step and a mistake drops it two; three steps up
+  means mastered. The dots on the study cards show this progress for the current mode.
 - **Study:** every level has flashcards, and the Atlas lets you search every country. Each country page shows
-  its flag, shape, location, capital, population, area and neighbours.
+  its flag, shape, location, capital, population, area and neighbors.
 - Works fully offline, follows light/dark mode, and gives haptic feedback on iPhone.
 
 ## Install on iPhone (SideStore)
@@ -40,8 +51,9 @@ automatically).
 src/modules/
   shared/   UI building blocks (Screen, Button, Stars…), storage + haptics bridge, helpers
   atlas/    country data, flags, shapes, maps (d3-geo), Atlas + country pages
-  levels/   continents → levels, progress/stars, home/continent/level pages
+  levels/   continents → levels, progress (stars + mastery), home/continent/level pages
   quiz/     question generation, question views, quiz + results
+  practice/ endless practice: scopes, weighted question picking, session summary
 scripts/build-data.mjs   builds the bundled data (levels, shapes, flags)
 ios/                     SwiftUI + WKWebView shell (XcodeGen spec)
 ```

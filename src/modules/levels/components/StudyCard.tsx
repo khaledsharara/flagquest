@@ -1,12 +1,14 @@
 import { CountryShape, Flag, type Country } from '../../atlas';
 import { Card } from '../../shared';
+import { MasteryDots } from './MasteryDots';
 
 interface StudyCardProps {
   country: Country;
+  mastery: number;
   onOpen: () => void;
 }
 
-export function StudyCard({ country, onOpen }: StudyCardProps) {
+export function StudyCard({ country, mastery, onOpen }: StudyCardProps) {
   return (
     <button type="button" onClick={onOpen} className="block w-full text-left transition-transform active:scale-[0.98]">
       <Card className="flex h-full flex-col p-3">
@@ -16,6 +18,7 @@ export function StudyCard({ country, onOpen }: StudyCardProps) {
         </div>
         <div className="mt-2 font-semibold leading-tight">{country.name}</div>
         <div className="text-sm leading-tight text-slate-500 dark:text-slate-400">{country.capital}</div>
+        <MasteryDots value={mastery} className="mt-2" />
       </Card>
     </button>
   );

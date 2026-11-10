@@ -3,14 +3,17 @@ import { useAtlas } from '../../atlas';
 import { Card, Icon } from '../../shared';
 import { useNavigation } from '../../../navigation';
 import { ContinentCard } from '../components/ContinentCard';
+import { EndlessCard } from '../components/EndlessCard';
 import { ModePicker } from '../components/ModePicker';
 import { useProgress } from '../components/ProgressProvider';
 import { levelsOf } from '../utils/levels';
+import { isMastered } from '../utils/mastery';
 
 export function HomePage() {
   const atlas = useAtlas();
-  const { mode, resultFor } = useProgress();
+  const { mode, resultFor, masteryOf, practicedIds } = useProgress();
   const { push } = useNavigation();
+  const masteredCount = [...practicedIds].filter((id) => isMastered(masteryOf(id, mode))).length;
 
   return (
     <div className="h-full overflow-y-auto overscroll-contain">
@@ -35,6 +38,16 @@ export function HomePage() {
               />
             );
           })}
+        </div>
+
+        <div className="mt-3">
+          <EndlessCard
+            title="Endless practice"
+            count={practicedIds.size}
+            mastered={masteredCount}
+            emptyHint="Play any level; everything you practice collects here"
+            onOpen={() => push({ name: 'practice', scope: { kind: 'all' }, mode })}
+          />
         </div>
 
         <button type="button" onClick={() => push({ name: 'atlas' })} className="mt-3 block w-full text-left">

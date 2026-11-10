@@ -143,7 +143,7 @@ export function QuestionView(props: QuestionViewProps) {
   if (props.question.type === 'locate') return <LocateQuestion {...props} />;
   const pictureAnswers = props.question.type === 'name-flag' || props.question.type === 'name-shape';
   return (
-    <div className="mx-auto flex min-h-full max-w-xl flex-col px-4 pb-4">
+    <div className="mx-auto flex w-full max-w-xl flex-1 flex-col px-4 pb-4">
       <div className="flex flex-1 flex-col items-center justify-center gap-4 py-4">
         <Prompt question={props.question} chosenId={props.chosenId} />
       </div>

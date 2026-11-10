@@ -1,5 +1,5 @@
 import type { Country } from '../../atlas/types';
-import type { Level, Mode } from '../../levels/types';
+import type { Level, Mode, Skill } from '../../levels/types';
 import { sample, shuffle } from '../../shared';
 import type { OptionState, Question, QuestionType } from '../types';
 
@@ -10,6 +10,20 @@ export const MODE_QUESTION_TYPES: Record<Mode, QuestionType[]> = {
   map: ['map-name', 'locate'],
   capitals: ['capital'],
 };
+
+export const QUESTION_SKILL: Record<QuestionType, Skill> = {
+  'flag-name': 'flags',
+  'name-flag': 'flags',
+  'shape-name': 'shapes',
+  'name-shape': 'shapes',
+  'map-name': 'map',
+  locate: 'map',
+  capital: 'capitals',
+};
+
+/** Question types of a mode that test the given skill. */
+export const typesForSkill = (mode: Mode, skill: Skill): QuestionType[] =>
+  MODE_QUESTION_TYPES[mode].filter((type) => QUESTION_SKILL[type] === skill);
 
 const OPTION_COUNT = 4;
 let keySeed = 0;

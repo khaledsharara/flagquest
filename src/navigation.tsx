@@ -1,12 +1,14 @@
 import { createContext, useCallback, useContext, useMemo, useState, type ReactNode } from 'react';
 import type { ContinentId } from './modules/atlas/types';
 import type { Mode } from './modules/levels/types';
+import type { PracticeScope } from './modules/practice/types';
 
 export type Route =
   | { name: 'home' }
   | { name: 'continent'; continent: ContinentId }
   | { name: 'level'; continent: ContinentId; level: number }
   | { name: 'quiz'; continent: ContinentId; level: number; mode: Mode }
+  | { name: 'practice'; scope: PracticeScope; mode: Mode }
   | { name: 'atlas' }
   | { name: 'country'; ids: string[]; index: number };
 

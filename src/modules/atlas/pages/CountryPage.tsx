@@ -2,6 +2,7 @@ import { useRef, useState, type TouchEvent } from 'react';
 import { Button, Card, Icon, Screen } from '../../shared';
 import { useNavigation } from '../../../navigation';
 import { useAtlas } from '../components/AtlasProvider';
+import { CountryChip } from '../components/CountryChip';
 import { CountryShape } from '../components/CountryShape';
 import { Fact } from '../components/Fact';
 import { Flag } from '../components/Flag';
@@ -103,18 +104,10 @@ export function CountryPage({ ids, index }: CountryPageProps) {
 
         {neighbors.length > 0 && (
           <div>
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">Neighbours</h2>
+            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">Neighbors</h2>
             <div className="flex flex-wrap gap-2">
               {neighbors.map((n) => (
-                <button
-                  key={n.id}
-                  type="button"
-                  onClick={() => push({ name: 'country', ids: [n.id], index: 0 })}
-                  className="flex items-center gap-2 rounded-full bg-white py-1.5 pl-2 pr-3 text-sm font-medium ring-1 ring-slate-200 active:bg-slate-100 dark:bg-slate-900 dark:ring-slate-800"
-                >
-                  <Flag country={n} className="h-4" />
-                  {n.name}
-                </button>
+                <CountryChip key={n.id} country={n} onClick={() => push({ name: 'country', ids: [n.id], index: 0 })} />
               ))}
             </div>
           </div>

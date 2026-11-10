@@ -1,4 +1,4 @@
-import { Flag, type Country } from '../../atlas';
+import { CountryChip, type Country } from '../../atlas';
 import { Button, Stars } from '../../shared';
 
 interface QuizResultsProps {
@@ -12,7 +12,7 @@ interface QuizResultsProps {
   onExit: () => void;
 }
 
-const messages = ['Keep practising', 'Level passed!', 'Great job!', 'Perfect!'];
+const messages = ['Keep practicing', 'Level passed!', 'Great job!', 'Perfect!'];
 
 export function QuizResults({ correct, total, stars, missed, canContinue, onRetry, onNext, onExit }: QuizResultsProps) {
   return (
@@ -31,13 +31,7 @@ export function QuizResults({ correct, total, stars, missed, canContinue, onRetr
           <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-400">To review</h2>
           <div className="flex flex-wrap gap-2">
             {missed.map((c) => (
-              <span
-                key={c.id}
-                className="flex items-center gap-2 rounded-full bg-white py-1.5 pl-2 pr-3 text-sm font-medium ring-1 ring-slate-200 dark:bg-slate-900 dark:ring-slate-800"
-              >
-                <Flag country={c} className="h-4" />
-                {c.name}
-              </span>
+              <CountryChip key={c.id} country={c} />
             ))}
           </div>
         </div>

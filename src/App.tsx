@@ -1,5 +1,6 @@
 import { AtlasPage, AtlasProvider, CountryPage } from './modules/atlas';
 import { ContinentPage, HomePage, LevelPage, ProgressProvider } from './modules/levels';
+import { PracticePage } from './modules/practice';
 import { QuizPage } from './modules/quiz';
 import { NavigationProvider, useNavigation, type Route } from './navigation';
 
@@ -13,6 +14,8 @@ function RouteView({ route }: { route: Route }) {
       return <LevelPage continent={route.continent} level={route.level} />;
     case 'quiz':
       return <QuizPage continent={route.continent} level={route.level} mode={route.mode} />;
+    case 'practice':
+      return <PracticePage scope={route.scope} mode={route.mode} />;
     case 'atlas':
       return <AtlasPage />;
     case 'country':
