@@ -1,0 +1,12 @@
+node_modules/
+dist/
+public/data/
+public/flags/
+ios/FlagQuest.xcodeproj/
+ios/build/
+ios/web/
+*.ipa
+.DS_Store
+ios/FlagQuest/Info.plist
+Payload/
+*.tsbuildinfo
